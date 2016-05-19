@@ -1,0 +1,10 @@
+---
+applications:
+- name: shared
+  memory: 1G
+  instances: 1
+  host: shared
+  buildpack: java_buildpack
+  path: target/shared-0.0.1-SNAPSHOT.jar
+  env:
+    SPRING_PROFILES_ACTIVE: prod,dev

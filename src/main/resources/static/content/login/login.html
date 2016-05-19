@@ -1,0 +1,37 @@
+<div id="container" class="cls-container">
+    <div id="bg-overlay" class="bg-img img-balloon"></div>
+    <div class="cls-header cls-header-lg">
+        <div class="cls-brand">
+            <a class="box-inline">
+                <span class="brand-title">Nifty <span class="text-thin">Admin</span></span>
+            </a>
+        </div>
+    </div>
+    <div class="cls-content">
+        <div class="cls-content-sm panel">
+            <div class="panel-body">
+                <p class="pad-btm">Sign In to your account</p>
+                <form ng-submit="login($event)">
+                    <div class="form-group">
+                        <div class="input-group">
+                            <div class="input-group-addon"><i class="fa fa-user"></i></div>
+                            <input type="text" class="form-control" placeholder="Username" ng-model="username">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="input-group">
+                            <div class="input-group-addon"><i class="fa fa-asterisk"></i></div>
+                            <input type="password" class="form-control" placeholder="Password" ng-model="password">
+                        </div>
+                    </div>
+                    <div class="mar-btm"><em></em></div>
+                    <button class="btn btn-primary btn-lg btn-block" type="submit">Sign In</button>
+                </form>
+            </div>
+        </div>
+        <div class="pad-ver">
+            <a ui-sref="password" class="btn-link mar-rgt">Forgot password ?</a>
+            <a ui-sref="register" class="btn-link mar-lft">Create a new account</a>
+        </div>
+    </div>
+</div>
