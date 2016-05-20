@@ -13,7 +13,7 @@ import java.text.SimpleDateFormat
  */
 @Component
 class JsonDateSerializer extends JsonSerializer<Date> {
-    private final SimpleDateFormat format=new SimpleDateFormat("MM-dd-yyyy")
+    private final SimpleDateFormat format=new SimpleDateFormat("hh:mm:ss dd-MM-yyyy")
 
     @Override
     void serialize(Date date, JsonGenerator jsonGenerator, SerializerProvider serializerProvider) throws IOException, JsonProcessingException {

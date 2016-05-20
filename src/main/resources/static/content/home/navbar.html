@@ -1,0 +1,115 @@
+<div id="navbar-container" class="boxed">
+    <div class="navbar-header">
+        <a ui-sref="dashboard" class="navbar-brand">
+            <img src="../assest/img/logo.png" alt="Nifty Logo" class="brand-icon">
+            <div class="brand-title">
+                <span class="brand-text">Nifty</span>
+            </div>
+        </a>
+    </div>
+    <div class="navbar-content clearfix">
+        <ul class="nav navbar-top-links pull-left">
+            <li class="tgl-menu-btn">
+                <a class="mainnav-toggle">
+                    <i class="pli-view-list"></i>
+                </a>
+            </li>
+            <li class="dropdown">
+                <a data-toggle="dropdown" class="dropdown-toggle">
+                    <i class="pli-bell"></i>
+                    <span class="badge badge-header badge-danger"></span>
+                </a>
+                <div class="dropdown-menu dropdown-menu-md">
+                    <div class="pad-all bord-btm">
+                        <p class="text-lg text-semibold mar-no">You have 9 notifications.</p>
+                    </div>
+
+                    <div class="nano scrollable has-scrollbar" style="height:300px">
+                        <div class="nano-content">
+                            <ul class="head-list">
+                                <li class="bg-gray">
+                                    <a class="media">
+                                        <div class="media-left">
+                                            <img class="img-circle img-sm" alt="Profile Picture"
+                                                 src="../assest/img/av1.png">
+                                        </div>
+                                        <div class="media-body">
+                                            <div class="text-nowrap">Lucy sent you a message</div>
+                                            <small class="text-muted">30 minutes ago</small>
+                                        </div>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+
+                    <div class="pad-all bord-top">
+                        <a class="btn-link text-dark box-block">
+                            <i class="fa fa-angle-right fa-lg pull-right"></i>Show All Notifications
+                        </a>
+                    </div>
+                </div>
+            </li>
+        </ul>
+        <ul class="nav navbar-top-links pull-right">
+            <li class="dropdown">
+                <a id="demo-lang-switch" class="lang-selector dropdown-toggle" data-toggle="dropdown">
+                                <span class="lang-selected">
+                                    <img class="lang-flag" src="../assest/img/united-kingdom.png" alt="English">
+                                </span>
+                </a>
+                <ul class="head-list dropdown-menu">
+                    <li>
+                        <a class="active">
+                            <img class="lang-flag" src="../assest/img/united-kingdom.png" alt="English">
+                            <span class="lang-id">EN</span>
+                            <span class="lang-name">English</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a>
+                            <img class="lang-flag" src="../assest/img/france.png" alt="France">
+                            <span class="lang-id">FR</span>
+                            <span class="lang-name">Fran&ccedil;ais</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <li id="dropdown-user" class="dropdown">
+                <a data-toggle="dropdown" class="dropdown-toggle text-right">
+                                <span class="pull-right">
+                                    <img class="img-circle img-user media-object" ng-src="{{user.url}}"
+                                         alt="Profile Picture">
+                                </span>
+                    <div class="username hidden-xs">{{user.email}}</div>
+                </a>
+
+
+                <div class="dropdown-menu dropdown-menu-md dropdown-menu-right panel-default">
+                    <div class="pad-all bord-btm">
+                        <p class="text-lg text-semibold mar-btm">750Gb of 1,000Gb Used</p>
+                        <div class="progress progress-sm">
+                            <div class="progress-bar" style="width: 70%;">
+                                <span class="sr-only">70%</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <ul class="head-list">
+                        <li>
+                            <a ui-sref="profile">
+                                <i class="pli-male icon-lg icon-fw"></i> Profile
+                            </a>
+                        </li>
+                    </ul>
+                    <div class="pad-all text-right">
+                        <a ng-click="logout()" class="btn btn-primary">
+                            <i class="pli-unlock"></i> Logout
+                        </a>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>

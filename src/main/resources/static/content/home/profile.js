@@ -5,11 +5,15 @@ angular.module("shared").config(function ($stateProvider) {
         url: "/profile",
         views: {
             "content@": {
-                templateUrl: "content/home/home.html"
+                templateUrl: "content/home/dashboard.html"
             },
             "profile@profile": {
                 templateUrl: "content/home/profile.html",
                 controller: "ProfileController"
+            },
+            "navbar@profile": {
+                templateUrl: "content/home/navbar.html",
+                controller: "NavbarController"
             }
         },
         data: {

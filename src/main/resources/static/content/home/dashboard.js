@@ -8,9 +8,14 @@ angular.module("shared").config(function ($stateProvider) {
         },
         views: {
             "content@": {
-                templateUrl: "content/home/home.html",
-                controller:"DashboardController"
+                templateUrl: "content/home/dashboard.html",
+                controller: "DashboardController"
+            },
+            "navbar@dashboard": {
+                templateUrl: "content/home/navbar.html",
+                controller: "NavbarController"
             }
+
         }
     })
 });

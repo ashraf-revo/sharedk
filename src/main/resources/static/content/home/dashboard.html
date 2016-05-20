@@ -1,0 +1,128 @@
+<header ui-view="navbar" id="navbar">
+
+</header>
+
+<div class="boxed">
+    <div id="content-container">
+        <div id="page-title">
+            <h1 class="page-header text-overflow">Blank page</h1>
+
+            <!--Searchbox-->
+            <div class="searchbox">
+                <div class="input-group custom-search-form">
+                    <input type="text" class="form-control" placeholder="Search..">
+                            <span class="input-group-btn">
+                                <button class="text-muted" type="button"><i class="fa fa-search"></i></button>
+                            </span>
+                </div>
+            </div>
+        </div>
+        <div id="page-content">
+            <div ui-view="profile"></div>
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2">
+
+                    <!-- Status Form -->
+                    <!--===================================================-->
+                    <div class="panel">
+                        <div class="panel-body">
+                            <textarea class="form-control" ng-model="info" rows="2"
+                                      placeholder="What are you thinking?"></textarea>
+                            <div class="mar-top clearfix">
+                                <button ng-click="share()" class="btn btn-sm btn-primary pull-right" type="submit"><i
+                                        class="fa fa-pencil fa-fw"></i> Share
+                                </button>
+                                <div class="fileUpload btn btn-trans btn-icon fa fa-camera add-tooltip">
+                                    <input type="file" class="upload" ng-model="file" multiple base-sixty-four-input/>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel">
+                        <div class="panel-body" ng-repeat="i in image">
+                            <div class="media-block pad-all">
+                                <a class="media-left">
+                                    <img class="img-circle img-sm" alt="Profile Picture" ng-src="{{i.user.url}}"
+                                    ></a>
+                                <div class="media-body">
+                                    <div class="mar-btm">
+                                        <a class="btn-link text-semibold media-heading box-inline">
+                                            {{i.user.email}}
+                                        </a>
+                                        <p class="text-muted text-sm"><i class="fa fa-lg"></i>
+                                            {{i.createdDate}}</p>
+                                    </div>
+                                    <p>{{i.info}}</p>
+                                    <img class="img-responsive thumbnail" ng-src="{{i.url}}" alt="Image">
+                                    <div class="pad-ver">
+                                            <span class="tag tag-sm"><i
+                                                    class="fa fa-heart text-danger"></i> 250 Likes</span>
+                                        <div class="btn-group">
+                                            <a class="btn btn-sm btn-default btn-hover-success"><i
+                                                    class="fa fa-thumbs-up"></i></a>
+                                            <a class="btn btn-sm btn-default btn-hover-danger"><i
+                                                    class="fa fa-thumbs-down"></i></a>
+                                        </div>
+                                        <a class="btn btn-sm btn-default btn-hover-primary">Comment</a>
+                                    </div>
+                                    <hr>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <nav id="mainnav-container">
+        <div id="mainnav">
+            <div id="mainnav-shortcut"></div>
+            <div id="mainnav-menu-wrap">
+                <div class="nano">
+                    <div class="nano-content">
+                        <ul id="mainnav-menu" class="list-group">
+                            <li class="list-header">Navigation</li>
+                            <li>
+                                <a href="index.html">
+                                    <i class="psi-home"></i>
+						                    <span class="menu-title">
+												<strong>Dashboard</strong>
+												<span class="label label-success pull-right">Top</span>
+											</span>
+                                </a>
+                            </li>
+                            <li class="list-divider"></li>
+                            <li class="list-header">Components</li>
+                            <li>
+                                <a>
+                                    <i class="psi-boot-2"></i>
+						                    <span class="menu-title">
+												Bootstrap
+												<span class="pull-right label label-purple">UI</span>
+											</span>
+                                </a>
+                                <ul class="collapse">
+                                    <li><a href="ui-buttons.html">Buttons</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <div class="mainnav-widget">
+                            <div class="show-small">
+                                <a data-toggle="menu-widget" data-target="#demo-wg-server">
+                                    <i class="fa fa-desktop"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+</div>
+<footer id="footer">
+    <div class="hide-fixed pull-right pad-rgt">Currently v2.4.1</div>
+    <p class="pad-lft">&#0169; 2016 Your Company</p>
+</footer>
+<button id="scroll-top" class="btn"><i class="fa fa-chevron-up"></i></button>
