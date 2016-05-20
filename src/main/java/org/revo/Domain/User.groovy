@@ -26,7 +26,6 @@ class User extends AbstractUserDetails {
     @Id
     @JsonView(View.User.class)
     String id
-    @TextIndexed
     @JsonView(View.User.class)
     String email
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
@@ -39,7 +38,7 @@ class User extends AbstractUserDetails {
     @JsonSerialize(using = JsonDateSerializer.class)
     @JsonView(View.User.class)
     Date createDate
-    @TextIndexed
+    @JsonView(View.User.class)
     String info
 
     @Override

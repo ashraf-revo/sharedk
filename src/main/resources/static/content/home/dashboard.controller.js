@@ -34,13 +34,14 @@ angular.module('shared')
             if ($scope.file != null && $scope.file.length > 0) {
                 $http.post('api/image', {
                     "file": $scope.file[0].base64,
-                    "info": $scope.text
+                    "info": $scope.info
                 }).success(function (image) {
-                    $scope.image.splice(0, 0, image);
+                    //$scope.image.splice(0, 0, image);
+                    $scope.image.unshift( image);
+                    $scope.file = null;
+                    $scope.info = "";
                 });
             }
-            $scope.file = null;
-            $scope.info = "";
         };
         $scope.load();
     });

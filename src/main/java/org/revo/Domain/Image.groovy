@@ -10,7 +10,6 @@ import org.springframework.data.annotation.CreatedBy
 import org.springframework.data.annotation.CreatedDate
 import org.springframework.data.annotation.Id
 import org.springframework.data.annotation.Transient
-import org.springframework.data.mongodb.core.index.TextIndexed
 import org.springframework.data.mongodb.core.mapping.DBRef
 import org.springframework.data.mongodb.core.mapping.Document
 
@@ -27,7 +26,6 @@ class Image {
     @JsonView(View.Image.class)
     String id
     @JsonView(View.Image.class)
-    @TextIndexed
     String info
     @CreatedDate
     @JsonSerialize(using = JsonDateSerializer.class)

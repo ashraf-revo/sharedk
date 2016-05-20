@@ -68,7 +68,7 @@ class ImageServiceImpl implements ImageService {
         cursor.sort(new BasicDBObject("_id", -1))
         cursor.limit(count)
         cursor.forEach {
-            images << new Image(id: it["_id"], createdDate: it["createdDate"] as Date, url: it["url"], user: new User(id: it["user"]['id']))
+            images << new Image(id: it["_id"], info: it["info"], createdDate: it["createdDate"] as Date, url: it["url"], user: new User(id: it["user"]['id']))
         }
         List<User> users = userRepository.findAll(images*.user.id) as List<User>
         images.collect { image ->
