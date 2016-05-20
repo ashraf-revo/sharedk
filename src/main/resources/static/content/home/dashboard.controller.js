@@ -2,17 +2,29 @@
 
 angular.module('shared')
     .controller('DashboardController', function (ChatService, $scope, $http) {
-
         $scope.image = [];
-        $scope.id = "";
-        ChatService.Images().then(null, null, function (message) {
+        $scope.idNotExist = function (image) {
+            var found = true;
+            for (var i = 0; i < $scope.image; i++) {
+                if (image.id == $scope.image[i].id) {
+                    found = false;
+                }
+            }
+            return found;
+        };
 
+        ChatService.Images().then(null, null, function (image) {
+            if ($scope.idNotExist(image))
+                $scope.image.splice(0, 0, image);
         });
 
         $scope.load = function () {
-            $http.get('api/image?id=' + $scope.id).success(function (response) {
-                response.forEach(function (d) {
-                    $scope.id = d.id;
+            var id = "";
+            $scope.image.forEach(function (d) {
+                id = d.id;
+            });
+            $http.get('api/image?id=' + id).success(function (image) {
+                image.forEach(function (d) {
                     $scope.image.push(d);
                 });
             });
@@ -23,8 +35,8 @@ angular.module('shared')
                 $http.post('api/image', {
                     "file": $scope.file[0].base64,
                     "info": $scope.text
-                }).success(function (response) {
-                    $scope.image.splice(0, 0, response);
+                }).success(function (image) {
+                    $scope.image.splice(0, 0, image);
                 });
             }
             $scope.file = null;
