@@ -1,5 +1,6 @@
 package org.revo.Domain
 
+import com.fasterxml.jackson.annotation.JsonProperty
 import com.fasterxml.jackson.annotation.JsonView
 import com.fasterxml.jackson.databind.annotation.JsonSerialize
 import groovy.transform.Canonical
@@ -24,6 +25,7 @@ import javax.persistence.Entity
 class Image {
     @Id
     @JsonView(View.Image.class)
+    @JsonProperty(access = JsonProperty.Access.READ_ONLY)
     String id
     @JsonView(View.Image.class)
     String info
