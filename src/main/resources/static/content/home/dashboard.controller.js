@@ -36,7 +36,6 @@ angular.module('shared')
                     "file": $scope.file[0].base64,
                     "info": $scope.info
                 }).success(function (image) {
-                    //$scope.image.splice(0, 0, image);
                     $scope.image.unshift( image);
                     $scope.file = null;
                     $scope.info = "";

@@ -18,10 +18,11 @@ angular.module("shared").service("ChatService", function ($q, $timeout, AuthServ
     };
     var startListener = function () {
         stomp.subscribe('/topic/images', function (data) {
-            ImagesListener.notify(data.body);
+            ImagesListener.notify(JSON.parse(data.body));
+
         });
         stomp.subscribe('/topic/notifications', function (data) {
-            NotificationsListener.notify(data.body);
+            NotificationsListener.notify(JSON.parse(data.body));
         });
     };
 
