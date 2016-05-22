@@ -11,6 +11,7 @@ import org.springframework.security.core.userdetails.UserDetails
  * Created by revo on 5/5/16.
  */
 abstract class AbstractUserDetails implements UserDetails {
+    @JsonProperty(access = JsonProperty.Access.READ_ONLY)
     int type
 
     @Override

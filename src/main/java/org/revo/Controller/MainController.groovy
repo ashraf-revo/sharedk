@@ -39,9 +39,14 @@ class MainController {
     @RequestMapping(value = "/register", method = RequestMethod.POST)
     ResponseEntity register(@Validated @RequestBody User user) {
         try {
+            user.type = 1
             ResponseEntity.ok(userService.Save(user))
         } catch (DuplicateKeyException ignored) {
-            ResponseEntity.badRequest().body("Please change your email")
+            ResponseEntity.badRequest().body(ignored.message.findAll(/\$\w*/).collect {
+                it.replace("\$", "")
+            }.findAll {
+                it != "DuplicateKey"
+            }.toSet())
         }
     }
 

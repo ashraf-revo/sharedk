@@ -13,12 +13,10 @@ import org.revo.Util.View
 import org.springframework.data.annotation.CreatedDate
 import org.springframework.data.annotation.Id
 import org.springframework.data.mongodb.core.index.Indexed
-import org.springframework.data.mongodb.core.index.TextIndexed
-import org.springframework.data.mongodb.core.mapping.DBRef
 import org.springframework.data.mongodb.core.mapping.Document
-import org.springframework.data.mongodb.core.mapping.Field
 
 import javax.persistence.Entity
+import javax.validation.constraints.Pattern
 import javax.validation.constraints.Size
 
 /**
@@ -40,7 +38,7 @@ class User extends AbstractUserDetails {
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     @JsonView(View.User.class)
     @NotBlank
-    @Size(min = 4,max = 60)
+    @Size(min = 4, max = 60)
     String password
     @JsonView(View.User.class)
     @URL
@@ -51,6 +49,13 @@ class User extends AbstractUserDetails {
     Date createDate
     @JsonView(View.User.class)
     String info
+    @JsonView(View.User.class)
+    @NotBlank
+    String username
+    @JsonView(View.User.class)
+    @Indexed(unique = true)
+    @Pattern(regexp = /[0-9]{11}/)
+    String phone
 
     @Override
     String getUsername() {
