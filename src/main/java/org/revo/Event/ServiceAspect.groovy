@@ -25,9 +25,10 @@ import java.util.logging.Level
 public class ServiceAspect {
     @Autowired
     CounterService counterService;
-@Autowired SecurityService securityService
-    @AfterReturning("execution(* org.revo.Service.*.*(..))")
+    @Autowired
+    SecurityService securityService
 
+    @AfterReturning("execution(* org.revo.Service.*.*(..))")
     public void UserService(JoinPoint point) {
         counterService.increment(Util.SplitCut(point.toString()))
     }
@@ -39,5 +40,4 @@ public class ServiceAspect {
         LinkedHashMap<String, Serializable> message = ["user": securityService.current(), "method": s, "ex": ex.message]
         log.log(Level.WARNING, message.entrySet().collect { it.key + ":" + it.value }.join("\n"))
     }
-
 }
