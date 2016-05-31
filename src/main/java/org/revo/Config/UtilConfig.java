@@ -4,6 +4,7 @@ import com.cloudinary.Cloudinary;
 import com.cloudinary.utils.ObjectUtils;
 import org.revo.Domain.User;
 import org.revo.Service.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -24,7 +25,7 @@ public class UtilConfig {
         return args -> {
             if (userService.Count() == 0) {
                 User user = new User();
-                user.setEmail("ashraf");
+                user.setEmail("ashraf1@gmail.com");
                 user.setPassword(encoder.encode("ashraf"));
                 user.setType(1);
                 userService.Save(user);
@@ -48,11 +49,11 @@ public class UtilConfig {
     }
 
     @Bean
-    public Cloudinary cloudinary() {
+    public Cloudinary cloudinary(CloudinaryProperties cloudinaryProperties) {
         return new Cloudinary(ObjectUtils.asMap(
-                "cloud_name", "dmmcfa9c0",
-                "api_key", "553119935255391",
-                "api_secret", "pkKIFJyAhX5xmQWVadko4VaCDi4"));
+                "cloud_name", cloudinaryProperties.getCloud_name(),
+                "api_key", cloudinaryProperties.getApi_key(),
+                "api_secret", cloudinaryProperties.getApi_secret()));
     }
 }
 
