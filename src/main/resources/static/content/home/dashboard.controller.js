@@ -1,11 +1,10 @@
 'use strict';
-
 angular.module('shared')
     .controller('DashboardController', function (ChatService, $scope, $http) {
         $scope.image = [];
         $scope.idNotExist = function (image) {
             var found = true;
-            for (var i = 0; i < $scope.image; i++) {
+            for (var i = 0; i < $scope.image.length; i++) {
                 if (image.id == $scope.image[i].id) {
                     found = false;
                 }
@@ -36,7 +35,8 @@ angular.module('shared')
                     "file": $scope.file[0].base64,
                     "info": $scope.info
                 }).success(function (image) {
-                    $scope.image.unshift( image);
+                    if ($scope.idNotExist(image))
+                        $scope.image.unshift(image);
                     $scope.file = null;
                     $scope.info = "";
                 });

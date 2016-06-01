@@ -7,4 +7,4 @@ applications:
   buildpack: java_buildpack
   path: target/shared-0.0.1-SNAPSHOT.jar
   env:
-    SPRING_PROFILES_ACTIVE: prod,dev
+    SPRING_PROFILES_ACTIVE: dev

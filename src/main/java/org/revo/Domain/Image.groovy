@@ -11,6 +11,7 @@ import org.springframework.data.annotation.CreatedBy
 import org.springframework.data.annotation.CreatedDate
 import org.springframework.data.annotation.Id
 import org.springframework.data.annotation.Transient
+import org.springframework.data.mongodb.core.index.Indexed
 import org.springframework.data.mongodb.core.mapping.DBRef
 import org.springframework.data.mongodb.core.mapping.Document
 
@@ -28,6 +29,7 @@ class Image {
     @JsonProperty(access = JsonProperty.Access.READ_ONLY)
     String id
     @JsonView(View.Image.class)
+    @Indexed
     String info
     @CreatedDate
     @JsonSerialize(using = JsonDateSerializer.class)
@@ -35,6 +37,7 @@ class Image {
     Date createdDate
     @URL
     @JsonView(View.Image.class)
+    @Indexed
     String url
     @CreatedBy
     @DBRef

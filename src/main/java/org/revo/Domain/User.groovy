@@ -48,9 +48,11 @@ class User extends AbstractUserDetails {
     @JsonView(View.User.class)
     Date createDate
     @JsonView(View.User.class)
+    @Indexed
     String info
     @JsonView(View.User.class)
     @NotBlank
+    @Indexed
     String username
     @JsonView(View.User.class)
     @Indexed(unique = true)
